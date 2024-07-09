@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "Textify",
+    "version": "0.1.0",
+    "description": "A Chrome extension to save the URL and selected text of any website you visit.",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "sidePanel",
+        "contextMenus"
+    ],
+    "host_permissions": [
+        "https://*.youtube.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "./img/icon1.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*",
+                "http://*/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "side_panel": {
+        "default_path": "sidepanel.html"
+    },
+    "icons": {
+        "128": "./img/icon2.png"
+    }
+}
